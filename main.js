@@ -14,6 +14,10 @@ const io = new Server(server, {
   },
 });
 
+const socketHandler = createSocketHandler(io);
+
+io.on("connection", socketHandler);
+
 const APP_URL = process.env.APP_URL ?? "#";
 
 app.get("/", async (req, res) => {
@@ -51,10 +55,6 @@ app.get("/", async (req, res) => {
 app.get("/health", (req, res) => {
   res.status(200).send({ message: "health check" });
 });
-
-const socketHandler = createSocketHandler(io);
-
-io.on("connection", socketHandler);
 
 const PORT = process.env.PORT || 4001;
 
