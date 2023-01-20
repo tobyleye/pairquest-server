@@ -21,8 +21,7 @@ io.on("connection", socketHandler);
 const APP_URL = process.env.APP_URL ?? "#";
 
 app.get("/", async (req, res) => {
-  try {
-    let content = `
+  let content = `
     <!DOCTYPE html>
     <html lang="en">
       <head>
@@ -43,13 +42,7 @@ app.get("/", async (req, res) => {
       </body>
     </html>
     `;
-    res.send(content);
-  } catch (err) {
-    res.status(500);
-    res.send(
-      `<h3>oops our server is down or something like that. Come back later.</h3>`
-    );
-  }
+  res.send(content);
 });
 
 app.get("/health", (req, res) => {
