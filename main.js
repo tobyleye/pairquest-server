@@ -29,13 +29,13 @@ app.get("/", async (req, res) => {
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Memory Server</title>
+        <title>Pair Quest Server</title>
       </head>
       <body>
         <div>
-          <h1>Memory Server</h1>
+          <h1>Pair Quest Server</h1>
           <p>
-            This is the server that powers the multiplayer mode of memory, a game
+            This is the server that powers the multiplayer mode of Pair Quest, a game
             where players try to match pairs.
           </p>
           <p>Play it <a href="${APP_URL}">here</a></p>
@@ -45,7 +45,7 @@ app.get("/", async (req, res) => {
     `;
     res.send(content);
   } catch (err) {
-    res.status(400);
+    res.status(500);
     res.send(
       `<h3>oops our server is down or something like that. Come back later.</h3>`
     );
