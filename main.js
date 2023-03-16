@@ -18,6 +18,8 @@ async function main() {
     cors: {
       origin: "*",
     },
+    pingTimeout: 2500,
+    pingInterval: 15000,
   });
 
   const socketHandler = createSocketHandler(io);
